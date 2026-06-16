@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('./db/dzle-pool');
 const { sql } = require('drizzle-orm');
+const userRouter = require('./routes/user-routes')
 const app = express();
 
 app.use(express.json());
@@ -15,14 +16,15 @@ async function dbConnectionCheck(){
     }
 }
 
-dbConnectionCheck()
+// routes
+app.use('/api/v1/users', userRouter)
 
-// Sample route
-app.get('/api/data', (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
-}); 
+if(require.main === module){
+    // dbConnectionCheck()
+    const PORT = process.env.PORT || 5001;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;

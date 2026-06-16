@@ -1,0 +1,28 @@
+# Jobflow
+
+A distributed job queue system built with Node.js, BullMQ, Redis, and PostgreSQL.
+
+## Features
+- Priority-based job scheduling
+- Exponential backoff retries
+- Dead letter queue recovery
+- Real-time WebSocket updates
+- JWT-based role access
+- PostgreSQL audit logging
+
+## Tech Stack
+- **Backend:** Node.js, Express
+- **Queue:** BullMQ, Redis
+- **Database:** PostgreSQL, Drizzle ORM
+- **Auth:** JWT
+- **Testing:** Jest, Supertest
+
+## Getting Started
+
+### Prerequisites
+- Docker
+- Docker Compose
+
+### Run locally
+git clone https://github.com/ragav/jobflow
+cd jobflow/backend
