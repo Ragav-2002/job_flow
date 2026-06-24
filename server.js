@@ -20,7 +20,7 @@ async function dbConnectionCheck(){
 app.use('/api/v1/users', userRouter)
 
 if(require.main === module){
-    // dbConnectionCheck()
+    dbConnectionCheck()
     const PORT = process.env.PORT || 5001;
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
