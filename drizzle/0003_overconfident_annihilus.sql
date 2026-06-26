@@ -1,0 +1,1 @@
+ALTER TABLE "tokens" ADD COLUMN "device" varchar(255);

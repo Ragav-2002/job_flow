@@ -1,5 +1,5 @@
 const { sql } = require('drizzle-orm')
-const {pgTable, uuid, text, timestamp, boolean} = require('drizzle-orm/pg-core')
+const {pgTable, uuid, text, timestamp, boolean, varchar} = require('drizzle-orm/pg-core')
 const users = require('./user')
 
 const tokens = pgTable("tokens", {
@@ -8,6 +8,7 @@ const tokens = pgTable("tokens", {
         onDelete: 'cascade'
     }),
     token_hash: text("token_hash").notNull().unique(),
+    device: varchar("device", {length: 255}),
     revoked: boolean("revoked").notNull().default(false),
     created_at: timestamp("created_at").defaultNow(),
     expires_at: timestamp("expires_at").notNull()
